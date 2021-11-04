@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <style>
+        #Needpasswd{
+            color: #121212;
+            font-weight: 1000;
+            margin-left:20px;
+            border-bottom: blue solid 5px;
+            padding-bottom: 15px;
+        }
+        #Nopasswd{
+            color: #444;
+            
+        }
+        .top{
+            width: 450px;
+            font-size: 20px;
+            line-height: 80px;
+            height: 80px;
+            margin-left: 25px;
+            cursor: pointer;
+        }
+        .input{
+            width: 400px;
+            font-size: 18px;
+            line-height: 50px;
+            height: 50px;
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+        .input input{
+            border:none;
+            width: 400px;
+            border-bottom: solid gray 1px;
+            padding-bottom:12px ;
+        }  
+
+        .otherLogin{
+            margin-left: 25px;
+            font-size: 18px;
+            margin-top: 60px;
+            width: 400px;
+        }
+        .forgetPasswd{
+            color: #8590a6;
+            margin-left: 180px;
+        }
+        .login{
+            color: #fff;
+            background-color: #06f;
+            width: 400px;
+            margin-top: 25px;
+            margin-left: 25px;
+            height: 36px;
+        }
+        .text{
+            margin-left: 25px;
+            margin-top: 25px;
+            color: #8590a6;
+            font-size: 16px ;
+            width: 400px;
+            border-bottom: solid gray 1px;
+            padding-bottom: 10px;
+        }
+
+        .otherWay{
+            margin-left: 25px;
+            margin-top: 25px;
+            width: 400px;
+            color:gray;
+            font-size: 18px ;
+        }
+        .otherWay a{
+            color: gray;
+        }
+        .otherWay i{
+            font-size: 18px;
+        }
+        .otherWay .talkicon{
+           margin-left: 40px;
+        }
+        .otherWay .littleicon{
+            margin-left: 20px;
+        }
+        .otherWay .iconfont{
+            margin-right: 6px;
+        }
+
+        .bottom{
+            margin-top: 25px;
+            height: 60px;
+            width: 450px;
+            line-height: 60px;
+            font-size: 18px;
+            background-color: #F6F6F6;
+        }
+    
+        .bottom .iconfont{
+            font-size: 25px;
+          
+        }
+        .bottom .start{
+           
+            margin-left: 25px;
+            padding-right: 80px;
+        }
+        .bottom .download{
+        
+            padding-left: 66px;
+            border-left: gray solid 1px;
+        }
+
+        .input i{
+            position: absolute;
+            left:400px;
+            top: 143px;
+            font-size: 25px;
+        }
+
+        .top img{
+            position: absolute;
+            margin-left: 150px;
+        }
+      
+    
+    </style>
+</head>
+<body>
+    <div id="zhihu">
+        <div class="top">
+            <a href="javascript:;" id="Nopasswd">免密码登录</a>
+            <a href="javascript:;" id="Needpasswd">密码登录</a>
+            <img src="./zhihu.png" >
+        </div>
+
+        <div class="input">
+               <input type="text" placeholder="手机号或邮箱">
+               <input type="password" placeholder="密码">
+               <i class="iconfont">&#xe8c7;</i>
+        </div>
+
+        <div class="otherLogin">
+            <a href="javascript:;">海外手机号登录</a>
+            <a href="javascript:;" class="forgetPasswd">忘记密码?</a>
+        </div>
+
+        <button class="login">登录</button>
+
+        <div class="text"> 
+        <div>未注册手机验证后登录，注册即代表同意《知乎协议》</div>
+        <div>《隐私保护指引》</div>
+        </div>
+
+        <div class="otherWay">
+            <span>社交账号登录</span>
+            <span class="talkicon">
+            <a class="littleicon" href="javascript:;"><i class="iconfont">&#xe73b;</i>微信</a>
+            <a class="littleicon" href="javascript:;"><i class="iconfont">&#xe600;</i>QQ</a>
+            <a class="littleicon" href="javascript:;"><i class="iconfont">&#xe641;</i>微博</a>
+            </span>
+        </div>
+
+        <div class="bottom">
+            <a  class="start" href="javascript:;"><i class="iconfont">&#xe64b;</i>开通机构号</a>
+            <a  class="download" href="javascript:;"><i class="iconfont">&#xe64b;</i>下载知乎APP</a>
+        </div>
+
+    </div>
+</body>
+</html>

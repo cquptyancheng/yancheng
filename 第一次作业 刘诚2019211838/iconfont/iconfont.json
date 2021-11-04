@@ -1,0 +1,44 @@
+{
+  "id": "2902669",
+  "name": "知乎",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1330569",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e73b",
+      "unicode_decimal": 59195
+    },
+    {
+      "icon_id": "3506928",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "11372780",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e8c7",
+      "unicode_decimal": 59591
+    },
+    {
+      "icon_id": "15559685",
+      "name": "微博",
+      "font_class": "shejiaotubiao-06",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "15559721",
+      "name": "知乎",
+      "font_class": "shejiaotubiao-46",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    }
+  ]
+}
