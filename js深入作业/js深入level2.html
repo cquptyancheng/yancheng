@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function course(){
+      this.coursename="CSA前端培训";
+      this.semester=2;
+    }
+    function student(name,age,gender){
+      this.name=name;
+      this.age=age;
+      this.gender=gender;
+      this.moreinfo=function()               
+      {
+        var that=this;
+        var	detail=function()
+        {
+          console.log(that.gender);
+        }
+        
+        detail();
+      }//第一种
+     
+    /*this.moreinfo=function() 
+      {
+        var	detail=()=>
+        {
+          console.log(this.gender);
+        }
+        detail();
+      }
+      第二种*/
+    course.call(this);
+  }
+    var student1 = new student("小明",18,"男");
+    console.log(student1.coursename,student1.semester); 
+    student1.moreinfo();
+</script>
+<body>
+    
+</body>
+</html>
