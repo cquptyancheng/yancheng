@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    li{
+        width: 600px;
+        margin-top: 10px;
+        position: relative;
+    }
+    .delete{
+        position: absolute;
+        left: 600px;
+    }
+    
+</style>
+<body>
+    <textarea cols="80" rows="10"></textarea>
+    <button class="post">点击发布</button>
+    <div class="list">
+    </div>
+
+    <script>
+        window.onload=()=>{
+        const btn=document.getElementsByClassName("post")[0];
+        const textarea=document.getElementsByTagName("textarea")[0];
+        const list=document.getElementsByClassName("list")[0];
+        btn.onclick=()=>{
+        let li=document.createElement('li');
+        li.innerHTML = textarea.value+"<button class='delete'>删除</button>" ;
+        list.insertBefore(li,list.firstElementChild);
+        textarea.value="";
+        let cut=document.getElementsByClassName("delete")[0];
+        cut.onclick=()=>{
+        li.parentNode.removeChild(li);
+     }
+    }
+    
+ }
+    </script>
+</body>
+</html>

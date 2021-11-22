@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+        text-align: center;
+        background-color: tomato;
+    }
+    button{
+        margin-top: 20px;
+    }
+   
+</style>
+<script>
+    window.onload=()=>{
+        const color=document.getElementsByClassName("color")[0];
+        const size=document.getElementsByClassName("size")[0];
+        const reset=document.getElementsByClassName("reset")[0];
+        const div=document.getElementsByTagName("div")[0];
+        reset.onclick=()=>{
+            div.style.backgroundColor="";
+            div.style.fontSize="";
+        }
+        color.onclick=()=>{
+             div.style.backgroundColor="yellow";
+        }
+        size.onclick=()=>{
+            div.style.fontSize="20px";
+            size.onclick=()=>{
+                div.style.fontSize="35px";
+            }
+            size.onclick=()=>{
+                div.style.fontSize="50px";
+            }
+        }
+    }
+</script>
+<body>
+    <div>哈哈哈</div>
+    <button class="color">改变颜色</button>
+    <button class="size">改变大小</button>
+    <button class="reset">还原</button>
+</body>
+</html>
