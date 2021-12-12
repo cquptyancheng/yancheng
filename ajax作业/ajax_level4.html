@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload=()=>{
+        let music=document.getElementById("music");
+        function ajax(option){
+            return new Promise((resolve,reject)=>{
+                const xhr=new XMLHttpRequest();
+                xhr.onreadystatechange=()=>{
+                if(xhr.readyState==4){
+                if(xhr.status>=200&&xhr.status<300){
+                    resolve(xhr.responseText);          
+                }
+            }
+        }
+        if(option.type=='GET'){
+            xhr.open('GET',option.url+'?'+option.data);
+            xhr.send();
+        }else if(option.type=="POST"){
+            xhr.open('POST',option.url);
+            xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+            xhr.send(option.data);
+        }
+            }).then((res)=>{
+                console.log(res);
+            })
+        }
+
+       const btn=document.getElementsByTagName("button")[0];
+       btn.onclick=()=>{
+       ajax({
+           type:"GET",
+           data:"keywords='"+music.value+"'",
+           url:"http://cloud-music.pl-fe.cn/cloudsearch",
+       });
+    }
+}
+</script>
+<body>
+    <input type="text" id="music" placeholder="歌曲名称"><button>搜索</button>
+</body>
+</html>

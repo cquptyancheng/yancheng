@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <script crossorigin='anonymous' src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="stylesheet" href="./iconfont2/iconfont.css">
+    <script>
+        window.onload=()=>{
+            const search=document.getElementsByClassName("search")[0];
+            let music=document.getElementById("music");
+            search.onclick=()=>{
+               axios.get('http://cloud-music.pl-fe.cn/cloudsearch',{
+                   params:{
+                        keywords:music.value,
+                        
+                   }
+               }).then((response)=>{
+                    let ul=document.getElementsByTagName("ul")[0];
+                    ul.innerHTML='<li><span class="Ttitle">音乐标题</span><span class="Tsinger">歌手</span><span class="Tablum">专辑</span></li>';
+                   // console.log(response);
+                    let lists=response.data.result.songs;
+                    for(let i=0;i<30;i++){
+                        let html="";
+                        let li=document.createElement("li");
+                        html=(i+1)+'<i class="iconfont like">&#xe86f;</i><i class="iconfont download">&#xe600</i><a class="title">'+lists[i].name+'</a><span class="singer">'+lists[i].ar[0].name+'</span><span class="ablum">'+lists[i].al.name+'</span>';
+                        if(i+1<10){
+                        html='0'+html;
+                        }
+                        li.innerHTML=html;
+                        if(i%2==0){
+                            li.style.backgroundColor="#f7f7f7";
+                        }
+                        ul.appendChild(li);
+                    }
+               }).catch((error)=>{
+                    console.log(error);
+               })    
+            } 
+        }
+    </script>
+    <style>
+        .like{
+            margin-left: 30px;
+        }
+        .download{
+            margin-left: 20px;
+        }
+        .Ttitle{
+           margin-left:125px ;
+        }
+        .Tsinger{
+          margin-left: 450px;
+        }
+        .Tablum{
+          margin-left:270px ;
+        }
+        .res li{
+            width: 1400px;
+            height: 40px;
+            line-height:40px ;    
+            margin-left: 120px;
+            list-style: none;
+        }
+        .title{
+            margin-left: 30px;
+            display: inline-block;
+            width: 400px;
+        }
+        .singer{
+            margin-left: 100px;
+            display: inline-block;
+            width: 200px;
+        }
+        .ablum{
+            margin-left: 100px;
+            display: inline-block;
+            width:400px ;
+        }
+        #music{
+            margin-left: 120px;
+            width: 1250px;
+        }
+        button{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+     <div class="main">
+         <input type="text" name="" id="music"><button class="search">搜索</button>
+     </div>   
+     <div class="result">
+         <ul class="res">
+             <li><span class="Ttitle">音乐标题</span><span class="Tsinger">歌手</span><span class="Tablum">专辑</span></li>
+         </ul>
+    </div>
+    
+</body>
+</html>
