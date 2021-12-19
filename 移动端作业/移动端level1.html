@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size:1px;">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Document</title>
+    <script crossorigin='anonymous' src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./iconfont3/iconfont.css">
+    <script>
+        window.onload=()=>{
+            let dateshow=document.getElementsByClassName("date")[0];
+            const choose=document.getElementsByClassName("choose")[0];
+            const option3=document.getElementById("option3"); 
+            choose.onclick=()=>{
+                option3.className="option2";
+                choose.innerHTML="&#xe630;"
+            }
+            choose.onmouseleave=()=>{
+                option3.className="option"; 
+                choose.innerHTML="&#xe6a9;" 
+            }
+
+        
+            axios.get('https://api.oick.cn/lishi/api.php',{
+             
+            }).then((response)=>{
+                //console.log(response.data.result);
+                let ul=document.getElementsByClassName("lists")[0];
+                let lists=response.data.result;
+                let show='<i class="iconfont left">&#xe63f;</i>'+lists[0].date.slice(lists[0].date.indexOf('年')+1)+'<i class="iconfont right">&#xe63e;</i>';
+                dateshow.innerHTML=show;
+                for(let i=0;i<15;i++){
+                    let html="";
+                    let li=document.createElement("li");
+                    let str=lists[i].date.slice(0,lists[i].date.indexOf('年')+1);
+                    html='<div class="time">'+str+'</div>'+'<div class="content">'+lists[i].title+'</div>'
+                    li.innerHTML=html;
+                    ul.appendChild(li);
+                }
+            }).catch((error)=>{
+                console.log(error);
+            })
+        }
+    </script>
+</head>
+<style>
+
+    .main{
+        margin: 0 auto;
+        width: 375px;
+    }
+    
+    .lists{
+        margin-top: 15px;
+    }
+    li{
+        margin-bottom: 18px;
+        list-style: none;
+    }
+
+    .time{
+        font-size:14px ;
+        color: #0066f0;
+        margin-left: 25px;
+        display: inline-block;
+        width: 60px;
+    }
+
+    .content{
+       font-size: 14px;
+       color: #0066f0;
+       margin-left: 20px;
+       padding-left: 10px;
+       border-left: 1px gainsboro solid;
+       display: inline-block;
+       width: 250px;
+       
+    }
+
+    .title{
+        background-color:royalblue;
+        width: 375px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 17px;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+
+    .date{
+        width: 375px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 17px;
+        text-align: center;
+        border-bottom: 1px gainsboro solid;
+        position: relative;
+    }
+    .house{
+        position: absolute;
+        left:15px;
+        font-size: 17px;
+    }
+    .choose{
+        position: absolute;
+        right: 15px;
+        font-size: 17px;
+    } 
+    .left{
+        position: absolute;
+        left:110px;
+        font-size: 20px;
+    }
+    .right{
+        position: absolute;
+        right: 110px;
+        font-size: 20px;
+    } 
+
+    .option{
+        background-color: white;
+        position: absolute;
+        color: black;
+        width: 375px;
+        height: 0px;
+        overflow: hidden;
+        transition: all ease-in-out .3s;
+        z-index:9999;
+    }
+    .option2{
+        background-color: white;
+        position: absolute;
+        color: black;
+        width: 375px;
+        height: 300px;
+        overflow: hidden;
+        transition: all ease-in-out .3s;
+        z-index:9999;
+    }
+    
+    .likid{
+        border-bottom: 1px solid gainsboro ;
+    }
+  
+    
+</style>
+<body>
+    <div class="main">
+    <div class="title"><i class="iconfont house">&#xe70a;</i>历史上的今天
+        <i class="iconfont choose">&#xe6a9;</i>
+        <div class="option" id="option3">
+            <ul>
+                <li class="likid">电话区号查询</li>
+                <li class="likid">手机号码查询</li>
+                <li class="likid">万年历查询</li>
+                <li class="likid">北京时间查询</li>
+                <li class="likid">IP地址查询</li>
+            </ul>
+        </div>
+    </div>
+    <div class="date"></div>
+    <ul class="lists"></ul>
+    </div>
+</body>
+</html>
